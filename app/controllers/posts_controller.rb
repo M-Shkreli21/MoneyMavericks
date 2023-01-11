@@ -33,7 +33,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_post_invalid_error
     private
 
     def post_params
-        params.permit(:title, :body, :category)
+        params.permit(:title, :body, :category, :user_id)
     end
 
     def find_post

@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   get "/stock_recommendations", to: "api#stock_recommendations"
   get "/stock_info", to: "api#stock_info"
   get "/stock_news", to: "api#stock_news"
-  get "crypto_list", to: "api#crypto_list"
-  get "crypto_info", to: "api#crypto_info"
+  get "/crypto_list", to: "api#crypto_list"
+  get "/crypto_info", to: "api#crypto_info"
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
