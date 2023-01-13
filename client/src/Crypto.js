@@ -11,8 +11,6 @@ function Crypto() {
         .then(data => setCryptoList([data][0].crypto))
     },[])
 
-    console.log(cryptoList)
-
     const crypto_render = [cryptoList].map((crypto) => {
         return <CryptoList key={Object.keys(crypto)} crypto={Object.values(crypto)}/>
     })

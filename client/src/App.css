@@ -79,6 +79,12 @@
   height:100px;
 }
 
+.terms{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
 .header_container{
   display: flex;
   justify-content: center;
