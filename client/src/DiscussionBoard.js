@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { Typography } from '@mui/material';
+import { Grid } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
-function DiscussionBoard({user, posts, addPost}) {
+function DiscussionBoard({ user, posts, addPost }) {
 
     const [postTitle, setPostTitle] = useState('')
     const [postBody, setPostBody] = useState('')
@@ -36,32 +43,44 @@ function DiscussionBoard({user, posts, addPost}) {
     }
 
     const postArray = posts.map((post) => {
-        return(
+        return (
             <div className='posts'>
-                <h6 className='post_header'>Title: {post.title}</h6>
-                <h6 className='post_header'>Category: {post.category}</h6>
-                <h6 className='post_header'>User: {post.user.username}</h6>
-                <h5 className='post-content'>{post.body}</h5>
+                <Grid>
+                    <Card>
+                        <CardContent>
+                            <Typography sx={{fontWeight: 'bold'}}>Title: {post.title}</Typography>
+                            <Typography sx={{fontStyle: 'italic'}}>Category: {post.category}</Typography>
+                            <Typography sx={{fontStyle: 'italic'}}>User: {post.user.username}</Typography>
+                            <br></br>
+                            <Typography>{post.body}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>
             </div>
         )
     })
 
 
-    return(
-        <div className="discussion_board">
-            <div className='post_container'>
+    return (
+        <div>
+            <h1>Discussion Board</h1>
+            <div>
                 {postArray}
             </div>
             <div className='new_post_form'>
                 <form onSubmit={submitNewPost}>
                     <h2>New Discussion Post</h2>
-                    <input type='text' onChange={addPostTitle} value={postTitle} placeholder="Please Enter Post Title"></input>
+                    <Box sx={{border: '1px'}}>
+                    <TextField type='text' fullWidth onChange={addPostTitle} value={postTitle} placeholder="Please Enter Post Title"/>
                     <br></br>
-                    <input type='text' onChange={addPostBody} value={postBody} placeholder="Enter Post Content"></input>
+                    <TextField type='text' fullWidth onChange={addPostCategory} value={postCategory} placeholder="Enter Post Category"/>
                     <br></br>
-                    <input type='text' onChange={addPostCategory} value={postCategory} placeholder="Enter Post Category"></input>
+                    <Box sx={{width: 100, maxWidth: '100%'}}>
+                    <TextField multiline maxRows={4} fullwidth sx={{ width: 1475, height: 150}} onChange={addPostBody} value={postBody} placeholder="Enter Post Content"/>
+                    </Box>
                     <br></br>
-                    <input type='Submit' value="Submit Post"></input>
+                    <Button sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='outlined' type="submit">Add New Post</Button>
+                    </Box>
                 </form>
             </div>
         </div>

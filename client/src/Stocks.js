@@ -1,86 +1,82 @@
 import React, {useState} from 'react';
-import StockList from './StockList';
+import CompanyProfile from './CompanyProfile';
+import StockQuote from './StockQuote';
+import StockCompetitors from './StockCompetitors';
+import StockTransactions from './StockTransactions';
+import StockReccomendation from './StockReccomendation';
+import StockInfo from './StockInfo';
+import { Grid } from '@mui/material';
+import Box from '@mui/material/Box';
 
 function Stocks() {
 
     const [stock, setStock] = useState("")
-    const [company, setCompany] = useState([])
+    const [companyProfile, setCompanyProfile] = useState([])
+    const [stockQuote, setStockQuote] = useState([])
+    const [stockPeers, setStockPeers] = useState([])
+    const [stockTransactions, setStockTransactions] = useState([])
+    const [stockReccomendation, setStockReccomendation] = useState([])
+    const [stockInfo, setStockInfo] = useState([])
 
     const handleStockChange = e => setStock(e.target.value)
 
-    // function clearForm() {
-    //     setStock("")
-    // }
-
-    const stockArray = []
-    const company_profile = []
-    const stock_quote = []
-    const stock_peers = []
-    const stock_transactions = []
-    const stock_recommendations = []
-    const stock_info = []
-
     function handleStockSubmit(e) {
         e.preventDefault()
-        setCompany([])
+        setCompanyProfile([])
+        setStockQuote([])
+        setStockPeers([])
+        setStockTransactions([])
+        setStockReccomendation([])
+        setStockInfo([])
+
+
         fetch(`/company_profile?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((profile) => [...profile, data]))
+        .then(data => setCompanyProfile(data))
 
         fetch(`/stock_quote?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((company) => [...company, data]))
+        .then(data => setStockQuote(data))
 
         fetch(`/stock_peers?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((company) => [...company, data]))
+        .then(data => setStockPeers(data))
 
         fetch(`/stock_transactions?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((company) => [...company, data]))
+        .then(data => setStockTransactions(data))
 
         fetch(`/stock_recommendations?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((company) => [...company, data]))
+        .then(data => setStockReccomendation(data))
 
         fetch(`/stock_info?symbol=${stock}`)
         .then(response => response.json())
-        .then(data => setCompany((company) => [...company, data]))
-
-        // stockArray.push(company_profile, stock_quote, stock_transactions, stock_recommendations, stock_peers, stock_info)
-
-        // setCompany(stockArray)
+        .then(data => setStockInfo(data))
     }
-
-    console.log(company)
-
-    const mappedStocks = company?.map((stocks) => {
-        return <StockList key={stocks.id} stocks={stocks} />
-    })
-
-
 
     return(
         <div>
+            <h3>Search By Ticker</h3>
             <form onSubmit={handleStockSubmit}>
                 <input type="text" onChange={handleStockChange} placeholder="Enter a Stock" />
                 <input type="submit" value="Search"/>
             </form>
+            <Grid container spacing={-1}>
             <div className="company_profile">
-                {/* <h3>{stock.Name}</h3>
-                <h5>{stock.Description}</h5>
-                <h5>Ticker: {stock.c}</h5>
-                <h5>Sector: {stock.Sector}</h5>
-                <h5>Company Beta: {stock.Beta}</h5>
-                <h5>Market Cap: {stock.MarketCapitalization}</h5>
-                <h5>P/E Ratio: {stock.PERatio}</h5>
-                <h5>EPS: ${stock.EPS}</h5>
-                <h5>Dividend Date: {stock.DividendDate}</h5>
-                <h5>Dividend Per Share: ${stock.DividendPerShare}</h5>
-                <h5>Dividend Yield: {stock.DividendYield}%</h5>
-                <h5>Shares Outstanding: {stock.SharesOutstanding}</h5> */}
-                {mappedStocks}
+                <StockInfo stockInfo={stockInfo} />
+                <br></br>
+                <Box direction="columns" justify="flex-start" alignItems="flex-start">
+                <CompanyProfile companyProfile={companyProfile}/>
+                <br></br>
+                <StockQuote stockQuote={stockQuote} />
+                <br></br>
+                <StockCompetitors stockPeers={stockPeers}/>
+                <br></br>
+                </Box>
+                <StockReccomendation stockReccomendation={stockReccomendation}/>
             </div>
+            </Grid>
         </div>
     )
 }

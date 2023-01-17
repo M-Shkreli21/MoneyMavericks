@@ -1,25 +1,26 @@
+import { useRadioGroup } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import ALFLogo from './ALF_Logo.png';
 
-function Header({handleLogout}) {
-    return(
+function Header({ handleLogout, user }) {
+    return (
         <div className="Header">
             <div className='header_container'>
-            <img className="logo" src={ALFLogo} alt=""></img>
-            <h1 className="SiteName">Alpha Level Finance</h1>
+                {/* <img className="logo" src={ALFLogo} alt=""></img> */}
+                <h1 className="SiteName">Alpha Level Finance</h1>
             </div>
-        <div>
-            <NavLink className="navLink" to="/">Home</NavLink>
-            <NavLink className="navLink" to="/Stocks">Stocks</NavLink>
-            <NavLink className="navLink" to="/Crypto">Crypto</NavLink>
-            <NavLink className="navLink" to="/MarketRelatedNews">Market Related News</NavLink>
-            <NavLink className="navLink" to="/FinancialTerms">Financial Terms</NavLink>
-            <NavLink className="navLink" to="/DiscussionBoard">Discussion</NavLink>
-            <NavLink className="navLink" to="/Login">Log In</NavLink>
-            <NavLink className="navLink" to="/Signup">Sign Up</NavLink>
-            <button className='logout_button' onClick={handleLogout}>Log Out</button>
-        </div>
+            <div className="links">
+                <NavLink className="navLink" to="/">Home</NavLink>
+                {user.id ? <><NavLink className="navLink" to="/Stocks">Stocks</NavLink>
+                <NavLink className="navLink" to="/Crypto">Crypto</NavLink>
+                <NavLink className="navLink" to="/MarketRelatedNews">Market Related News</NavLink>
+                <NavLink className="navLink" to="/FinancialTerms">Financial Terms</NavLink>
+                <NavLink className="navLink" to="/DiscussionBoard">Discussion</NavLink></> : null}
+                {!user.id ? <><NavLink className="navLink" to="/Login">Log In</NavLink>
+                <NavLink className="navLink" to="/Signup">Sign Up</NavLink></>: null}
+                {user.id ? <button className='logout_button' onClick={handleLogout}>Log Out</button> : null}
+            </div>
         </div>
     )
 }

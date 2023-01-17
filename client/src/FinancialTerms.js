@@ -1,4 +1,8 @@
+import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import { Grid } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 function FinancialTerms() {
 
@@ -8,32 +12,35 @@ function FinancialTerms() {
 
     useEffect(() => {
         fetch("/terms")
-        .then(response => response.json())
-        .then(data => setTerms(data))
+            .then(response => response.json())
+            .then(data => setTerms(data))
     }, [])
 
-    console.log(terms)
-    
     const termArray = terms.map((term) => {
 
-        function handleTerm(){
+        function handleTerm() {
             setId(term.id)
             setToggle(!toggle)
         }
 
         return (
-            <div className="terms" >
-                <h4 onClick={handleTerm}>{term.term_name}</h4>
-                <div>
-                <p>{term.id === id && toggle ? term.definition : null}</p>
-                </div>
+            <div>
+                <Card variant="outlined" sx={{ m: 1, width: 330, height: 175, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5' }}>
+                    <CardContent>
+                        <Typography sx={{fontWeight: 'bold'}} onClick={handleTerm}>{term.term_name}</Typography>
+                        <Typography sx={{fontStyle: 'italic'}}>{term.id === id && toggle ? term.definition : null}</Typography>
+                    </CardContent>
+                </Card>
             </div>
         )
     })
 
-    return(
+    return (
         <div>
-            {termArray}
+            <h1>Financial Terms</h1>
+            <Grid container spacing={-2} direction="row" justify="flex-start" alignItems="flex-start">
+                {termArray}
+            </Grid>
         </div>
     )
 }

@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleLogout={handleLogout}/>
+      <Header handleLogout={handleLogout} user={user}/>
       <SlideRoutes location={location} duration={400}>
         <Route path="/" element={<Home exact/>} />
         <Route path="/Stocks" element={<Stocks/>} />

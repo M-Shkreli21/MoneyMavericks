@@ -50,10 +50,14 @@
   justify-content: center;
 }
 
-.news_container{
+.crypto_info{
+  float:right
+}
+
+.coin_container{
+  float: left;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .navLink{
@@ -63,7 +67,7 @@
 
 .posts{
   outline:auto;
-  margin:auto;
+  margin: 5px;
 }
 
 .post_header{
@@ -79,16 +83,50 @@
   height:100px;
 }
 
-.terms{
-  display: flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-}
-
 .header_container{
   display: flex;
   justify-content: center;
+  background-color: rgb(14, 149, 39)
 }
+
+.new_post_form{
+  background-color: whitesmoke;
+  width: 1475px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.Header{
+  background-color: rgb(14, 149, 39)
+}
+
+.links{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px; 
+  background-color: rgb(14, 149, 39)
+}
+
+.navLink {
+  margin: 10px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.logout_button {
+  margin: 10px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.company_info_header{
+  margin: 5px;
+}
+
 
 @keyframes App-logo-spin {
   from {
