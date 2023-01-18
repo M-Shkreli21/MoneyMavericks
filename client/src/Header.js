@@ -7,7 +7,7 @@ function Header({ handleLogout, user }) {
     return (
         <div className="Header">
             <div className='header_container'>
-                <h1 className="SiteName">Alpha Level Finance</h1>
+                <h1 className="SiteName">Money Mavericks</h1>
             </div>
             <div className="links">
                 <NavLink className="navLink" to="/">Home</NavLink>

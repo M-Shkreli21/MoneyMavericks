@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function Login({user, setUser}) {
 
@@ -33,7 +35,7 @@ function Login({user, setUser}) {
         return (
             <div className="welcome_message">
                 <h3>
-                Welcome to Alpha Level Finance {user.first_name}
+                Welcome to Money Mavericks {user.first_name}
                 </h3>
             </div>
         )
@@ -44,11 +46,11 @@ function Login({user, setUser}) {
             <form className='login_form' onSubmit={handleLogin}>
                 <p style={{color: 'red'}}>{error ? error : null}</p>
                 <h2>User Login:</h2>
-                <input type="text" onChange={handleChangeUsername} value={username} placeholder="Please Enter Username"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="Username" size="small" type="text" onChange={handleChangeUsername} value={username} placeholder="Please Enter Username" required/>
                 <br></br>
-                <input type="password" onChange={handleChangePassword} value={password} placeholder="Please Enter Password"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="Password" size="small" type="password" onChange={handleChangePassword} value={password} placeholder="Please Enter Password" required/>
                 <br></br>
-                <input type="submit" value="Login"/>
+                <Button sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} size="large" color="success" className= "form-button" variant='contained' type="submit">Log In</Button>
             </form>
         </div>
     )

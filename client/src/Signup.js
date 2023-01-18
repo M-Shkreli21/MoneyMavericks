@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function Signup({addUser}) {
 
@@ -52,17 +54,17 @@ function Signup({addUser}) {
             <form onSubmit={submitNewUser}>
                 <p style={{color: 'red'}}>{error ? error : null}</p>
                 <h2>New User Sign Up</h2>
-                <input type='text' onChange={addFirstName} value={firstName} placeholder="Enter First Name"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="First Name" type='text' onChange={addFirstName} value={firstName} required/>
                 <br></br>
-                <input type='text' onChange={addLastName} value={lastName} placeholder="Enter Last Name" />
+                <TextField sx={{ m: 1, background:"transparent" }} label="Last Name" type='text' onChange={addLastName} value={lastName} placeholder="Enter Last Name" required/>
                 <br></br>
-                <input type='text' onChange={addUsername} value={username} placeholder="Enter Username"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="Username" type='text' onChange={addUsername} value={username} placeholder="Enter Username" required/>
                 <br></br>
-                <input type='text' onChange={addEmail} value={email} placeholder="Enter Email"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="Email" type='text' onChange={addEmail} value={email} placeholder="Enter Email" required/>
                 <br></br>
-                <input type='password' onChange={addPassword} value={password} placeholder="Enter Password"/>
+                <TextField sx={{ m: 1, background:"transparent" }} label="Password" type='password' onChange={addPassword} value={password} placeholder="Enter Password" required/>
                 <br></br>
-                <input type='submit' value='Signup' />
+                <Button sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='contained' size="large" color="success" type='submit' value='Signup'>Sign Up</Button>
             </form>
         </div>
     )

@@ -42,7 +42,7 @@ function DiscussionBoard({ user, posts, addPost }) {
         clearForm()
     }
 
-    const postArray = posts.map((post) => {
+    const postArray = posts?.map((post) => {
         return (
             <div className='posts'>
                 <Grid>
@@ -79,7 +79,7 @@ function DiscussionBoard({ user, posts, addPost }) {
                     <TextField multiline maxRows={4} fullwidth sx={{ width: 1475, height: 150}} onChange={addPostBody} value={postBody} placeholder="Enter Post Content"/>
                     </Box>
                     <br></br>
-                    <Button sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='outlined' type="submit">Add New Post</Button>
+                    <Button color="success" sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='contained' type="submit">Add New Post</Button>
                     </Box>
                 </form>
             </div>

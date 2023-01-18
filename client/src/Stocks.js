@@ -7,6 +7,8 @@ import StockReccomendation from './StockReccomendation';
 import StockInfo from './StockInfo';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Stocks() {
 
@@ -59,8 +61,8 @@ function Stocks() {
         <div >
             <h3>Search By Ticker</h3>
             <form onSubmit={handleStockSubmit}>
-                <input type="text" onChange={handleStockChange} placeholder="Enter a Stock" />
-                <input type="submit" value="Search" />
+                <TextField type="text" onChange={handleStockChange} placeholder="Enter a Stock" size="small"/>
+                <Button type="submit" value="Search" color="success" size="small" sx={{ m: 0.5, p:0.5, backgroundColor: "none", borderColor: 'black' }} variant='contained'>Search Stock</Button>
             </form>
             <div className='parent'>
                 <div className="company_info">

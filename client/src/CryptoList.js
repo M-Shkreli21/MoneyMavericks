@@ -4,6 +4,13 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function CryptoList({ crypto }) {
 
@@ -19,18 +26,14 @@ function CryptoList({ crypto }) {
             .then(data => setCryptoArray(data))
     }
 
-    const crypto_render = crypto.map((coin) => {
-        return <CryptoListRender key={coin.name} coin={coin} />
-    })
-
     return (
         <div>
             <Box>
                 <div className="crypto_info">
-                    <form onSubmit={showCrypto} onBlur={searchCrypto} value={cryptoName} className="Crypto_info">
+                    <form onSubmit={showCrypto} onChange={searchCrypto} value={cryptoName} className="Crypto_info">
                         <Box>
-                            <TextField type="text" placeholder="Enter Crypto Name" />
-                            <Button type="submit" value="Search" sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='outlined'>Search Crypto</Button>
+                            <TextField type="text" placeholder="Enter Crypto Name" size="small" />
+                            <Button type="submit" value="Search" color="success" size="small" sx={{ m: 0.5, p: 0.5, backgroundColor: "none", borderColor: 'white' }} variant='contained'>Search Crypto</Button>
                         </Box>
                     </form>
                     <Typography>Price: {cryptoName ? cryptoArray[cryptoName].usd : null}</Typography>
@@ -40,7 +43,28 @@ function CryptoList({ crypto }) {
                 </div>
             </Box>
             <br></br>
-            <h4>{crypto_render}</h4>
+            <div className="crypto_table">
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650}} aria-label="simple table" size="small">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell sx={{fontWeight: "bold" }} align="left">Crypto Logo</TableCell>
+                                <TableCell sx={{fontWeight: "bold" }} align="center">Crypto Name (Ticker)</TableCell>
+                                <TableCell sx={{fontWeight: "bold" }} align="right">Max Supply</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {crypto.map((coin) => (
+                                <TableRow key={coin.name}>
+                                    <TableCell align="left" component="img" height="50" width="60" src={coin.icon_url} alt="coin-icon"></TableCell>
+                                    <TableCell align="center">{coin.name} ({coin.symbol})</TableCell>
+                                    <TableCell align="right">{Intl.NumberFormat({style: 'currency', currency: 'USD' }).format(coin.max_supply)} Coins</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
         </div>
     )
 }

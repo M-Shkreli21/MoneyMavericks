@@ -2,6 +2,11 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
 
 function StockCompetitors({stockPeers}) {
 
@@ -9,20 +14,40 @@ function StockCompetitors({stockPeers}) {
 
     return(
         <div>
-            <Card sx={{ m: 1, width: 220, height: 325,  backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
-            <h3>Top Competitors:</h3>
-            <CardContent>
-            <Typography>{stockPeers[1]}</Typography>
-            <Typography>{stockPeers[2]}</Typography>
-            <Typography>{stockPeers[3]}</Typography>
-            <Typography>{stockPeers[4]}</Typography>
-            <Typography>{stockPeers[5]}</Typography>
-            <Typography>{stockPeers[6]}</Typography>
-            <Typography>{stockPeers[7]}</Typography>
-            <Typography>{stockPeers[8]}</Typography>
-            <Typography>{stockPeers[9]}</Typography>
-            </CardContent>
-            </Card>
+            <TableContainer>
+            <h3 className="pricing_info">Top Competitors:</h3>
+            <Table size="small" sx={{ m: 1, width: 220, height: 325,  backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <TableBody>
+            <TableRow>
+                <TableCell>{stockPeers[1]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[2]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[3]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[4]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[5]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[6]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[7]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[8]}</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>{stockPeers[9]}</TableCell>
+            </TableRow>
+            </TableBody>
+            </Table>
+            </TableContainer>
         </div>
     )
 }
