@@ -32,7 +32,9 @@ function Login({user, setUser}) {
     if (user && user.id) {
         return (
             <div className="welcome_message">
+                <h3>
                 Welcome to Alpha Level Finance {user.first_name}
+                </h3>
             </div>
         )
     }

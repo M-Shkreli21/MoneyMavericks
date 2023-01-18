@@ -7,7 +7,6 @@ function Header({ handleLogout, user }) {
     return (
         <div className="Header">
             <div className='header_container'>
-                {/* <img className="logo" src={ALFLogo} alt=""></img> */}
                 <h1 className="SiteName">Alpha Level Finance</h1>
             </div>
             <div className="links">

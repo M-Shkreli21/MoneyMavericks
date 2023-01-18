@@ -11,7 +11,7 @@ function CompanyProfile({ companyProfile }) {
 
     return (
         <div>
-            <Card sx={{ m: 1, width: 800, height: 350, display: "flex", flexDirection: 'column', justifyContent: "space-between", backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
+            <Card sx={{ m: 1, width: 800, height: 350, backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
             <h3>Company Profile:</h3>
                 <CardContent>
                     <Typography>Industry: {companyProfile.Industry}</Typography>

@@ -5,9 +5,11 @@ import CardContent from '@mui/material/CardContent';
 
 function StockQuote({ stockQuote }) {
 
+    console.log(stockQuote)
+
     return (
         <div>
-            <Card sx={{ m: 1, width: 250, height: 175, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <Card sx={{ m: 1, width: 250, height: 175, backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
             <h3>Pricing Information:</h3>
             <CardContent>
                 <Typography>Most Recent Quote: ${stockQuote.c}</Typography>

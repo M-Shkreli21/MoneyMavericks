@@ -23,7 +23,7 @@ function StockReccomendation({ stockReccomendation }) {
 
     return (
         <div>
-            <Card sx={{ m: 1, width: 220, height: 1000, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <Card sx={{ m: 1, width: 1500, height: 200, display: 'flex', justifyContent: 'space-evenly', backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
                 <h3>Analyst Recommendations:</h3>
                 {mappedStockReccomendation}
             </Card>

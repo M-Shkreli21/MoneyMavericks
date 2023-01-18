@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import CompanyProfile from './CompanyProfile';
 import StockQuote from './StockQuote';
 import StockCompetitors from './StockCompetitors';
@@ -31,52 +31,54 @@ function Stocks() {
 
 
         fetch(`/company_profile?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setCompanyProfile(data))
+            .then(response => response.json())
+            .then(data => setCompanyProfile(data))
 
         fetch(`/stock_quote?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setStockQuote(data))
+            .then(response => response.json())
+            .then(data => setStockQuote(data))
 
         fetch(`/stock_peers?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setStockPeers(data))
+            .then(response => response.json())
+            .then(data => setStockPeers(data))
 
         fetch(`/stock_transactions?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setStockTransactions(data))
+            .then(response => response.json())
+            .then(data => setStockTransactions(data))
 
         fetch(`/stock_recommendations?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setStockReccomendation(data))
+            .then(response => response.json())
+            .then(data => setStockReccomendation(data))
 
         fetch(`/stock_info?symbol=${stock}`)
-        .then(response => response.json())
-        .then(data => setStockInfo(data))
+            .then(response => response.json())
+            .then(data => setStockInfo(data))
     }
 
-    return(
-        <div>
+    return (
+        <div >
             <h3>Search By Ticker</h3>
             <form onSubmit={handleStockSubmit}>
                 <input type="text" onChange={handleStockChange} placeholder="Enter a Stock" />
-                <input type="submit" value="Search"/>
+                <input type="submit" value="Search" />
             </form>
-            <Grid container spacing={-1}>
-            <div className="company_profile">
-                <StockInfo stockInfo={stockInfo} />
-                <br></br>
-                <Box direction="columns" justify="flex-start" alignItems="flex-start">
-                <CompanyProfile companyProfile={companyProfile}/>
-                <br></br>
-                <StockQuote stockQuote={stockQuote} />
-                <br></br>
-                <StockCompetitors stockPeers={stockPeers}/>
-                <br></br>
-                </Box>
-                <StockReccomendation stockReccomendation={stockReccomendation}/>
+            <div className='parent'>
+                <div className="company_info">
+                    <StockInfo stockInfo={stockInfo} />
+                </div>
+                <div className="company_profile">
+                    <CompanyProfile companyProfile={companyProfile} />
+                </div>
+                <div className="stock_quote">
+                    <StockQuote stockQuote={stockQuote} />
+                </div>
+                <div className="stock_competitors">
+                    <StockCompetitors stockPeers={stockPeers} />
+                </div>
+                <div className="stock_rec">
+                <StockReccomendation stockReccomendation={stockReccomendation} />
+                </div>
             </div>
-            </Grid>
         </div>
     )
 }

@@ -9,8 +9,8 @@ function StockCompetitors({stockPeers}) {
 
     return(
         <div>
-            <Card sx={{ m: 1, width: 220, height: 325, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
-            <h3>Competitors</h3>
+            <Card sx={{ m: 1, width: 220, height: 325,  backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <h3>Top Competitors:</h3>
             <CardContent>
             <Typography>{stockPeers[1]}</Typography>
             <Typography>{stockPeers[2]}</Typography>

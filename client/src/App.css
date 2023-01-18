@@ -85,8 +85,16 @@
 
 .header_container{
   display: flex;
-  justify-content: center;
-  background-color: rgb(14, 149, 39)
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(255, 255, 255);
+  justify-content: left;
+  background-image: url('https://t3.ftcdn.net/jpg/02/74/91/02/360_F_274910292_Xm3dgmmfMJVFrcjUR1eqJmIC7giRrsTF.jpg');
+  background-size: cover;
+  height: 75px;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  opacity: 0.7;
+  /* background-color: rgb(14, 149, 39) */
 }
 
 .new_post_form{
@@ -96,15 +104,10 @@
   margin-bottom: 20px;
 }
 
-.Header{
-  background-color: rgb(14, 149, 39)
-}
-
 .links{
   display: flex;
-  justify-content: space-between;
-  margin: 5px; 
-  background-color: rgb(14, 149, 39)
+  justify-content: space-between; 
+  background-color: rgb(11, 131, 33, 0.9)
 }
 
 .navLink {
@@ -126,6 +129,19 @@
 .company_info_header{
   margin: 5px;
 }
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .company_info { grid-area: 1 / 1 / 2 / 6; }
+  .company_profile { grid-area: 2 / 1 / 4 / 4; }
+  .stock_competitors { grid-area: 2 / 4 / 4 / 5; }
+  .stock_quote { grid-area: 2 / 5 / 4 / 6; }
+  .stock_rec { grid-area: 4 / 1 / 5 / 6; }
 
 
 @keyframes App-logo-spin {
