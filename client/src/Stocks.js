@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import CompanyProfile from './CompanyProfile';
 import StockQuote from './StockQuote';
 import StockCompetitors from './StockCompetitors';
-import StockTransactions from './StockTransactions';
 import StockReccomendation from './StockReccomendation';
 import StockInfo from './StockInfo';
-import { Grid } from '@mui/material';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -16,7 +13,6 @@ function Stocks() {
     const [companyProfile, setCompanyProfile] = useState([])
     const [stockQuote, setStockQuote] = useState([])
     const [stockPeers, setStockPeers] = useState([])
-    const [stockTransactions, setStockTransactions] = useState([])
     const [stockReccomendation, setStockReccomendation] = useState([])
     const [stockInfo, setStockInfo] = useState([])
 
@@ -27,7 +23,6 @@ function Stocks() {
         setCompanyProfile([])
         setStockQuote([])
         setStockPeers([])
-        setStockTransactions([])
         setStockReccomendation([])
         setStockInfo([])
 
@@ -43,10 +38,6 @@ function Stocks() {
         fetch(`/stock_peers?symbol=${stock}`)
             .then(response => response.json())
             .then(data => setStockPeers(data))
-
-        fetch(`/stock_transactions?symbol=${stock}`)
-            .then(response => response.json())
-            .then(data => setStockTransactions(data))
 
         fetch(`/stock_recommendations?symbol=${stock}`)
             .then(response => response.json())

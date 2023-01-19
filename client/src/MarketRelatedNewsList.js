@@ -13,12 +13,11 @@ function MarketRelatedNewsList({ market_news }) {
         <div>
             <Grid container spacing={-2} direction="column" justify="flex-start" alignItems="flex-start">
                 <Card variant="outlined" sx={{m:1 , width: 1425, height: 250, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5' }}>
-                    <CardMedia component="img" height="100" src={market_news.image} alt='news' />
+                    <CardMedia component="img" height="140" src={market_news.image} alt='news' />
                     <CardContent>
-                        <Typography>Source: {market_news.source}</Typography>
-                        <Typography>Category: {market_news.category}</Typography>
                         <Typography><a href={market_news.url}>{market_news.headline}</a></Typography>
-                        <Typography>{market_news.summary}</Typography>
+                        <Typography>Summary: {market_news.summary}</Typography>
+                        <Typography>Source: {market_news.source}</Typography>
                     </CardContent>
                 </Card>
             </Grid>

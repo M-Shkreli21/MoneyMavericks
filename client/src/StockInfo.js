@@ -1,13 +1,10 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 function StockInfo({ stockInfo }) {
@@ -56,14 +53,3 @@ function StockInfo({ stockInfo }) {
 }
 
 export default StockInfo;
-
-{/* <Card className="company_info" sx={{m: 0.8, width: 1500, height: 210, position: "right", backgroundColor: '#f5f5f5'}}>
-                    <CardContent>
-                        <Typography>Company Name: {stockInfo.name}</Typography>
-                        <Typography>Company Ticker: {stockInfo.ticker}</Typography>
-                        <Typography>URL:<a href={stockInfo.weburl}>{stockInfo.weburl}</a></Typography>
-                        <Typography>Home Country: {stockInfo.country}</Typography>
-                        <Typography>Exchange: {stockInfo.exchange}</Typography>
-                        <Typography>IPO Date: {stockInfo.ipo}</Typography>
-                    </CardContent>
-                </Card> */}

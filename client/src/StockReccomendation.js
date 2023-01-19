@@ -1,14 +1,10 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
 function StockReccomendation({ stockReccomendation }) {
 
@@ -32,11 +28,11 @@ function StockReccomendation({ stockReccomendation }) {
                     {stockReccomendation?.map((rec) => (
                     <TableRow>
                     <TableCell align="center">{rec.period}</TableCell>
-                    <TableCell align="center">{rec.buy}</TableCell>
-                    <TableCell align="center">{rec.hold}</TableCell>
-                    <TableCell align="center">{rec.sell}</TableCell>
-                    <TableCell align="center">{rec.strongBuy}</TableCell>
-                    <TableCell align="center">{rec.strongSell}</TableCell>
+                    <TableCell align="center" sx={{color: 'green'}}>{rec.buy}</TableCell>
+                    <TableCell align="center" sx={{color: '#9c9f17'}}>{rec.hold}</TableCell>
+                    <TableCell align="center" sx={{color: 'red'}}>{rec.sell}</TableCell>
+                    <TableCell align="center" sx={{color: 'green'}}>{rec.strongBuy}</TableCell>
+                    <TableCell align="center" sx={{color: 'red'}}>{rec.strongSell}</TableCell>
                     </TableRow>
                     ))}
                 </TableBody>
@@ -47,19 +43,3 @@ function StockReccomendation({ stockReccomendation }) {
 }
 
 export default StockReccomendation;
-
-    // const mappedStockReccomendation = stockReccomendation?.map((rec) => {
-    //     return (
-    //         <div>
-    //             <CardContent>
-    //                 <Typography>Period: {rec.period}</Typography>
-    //                 <Typography>Buy: {rec.buy}</Typography>
-    //                 <Typography>Hold: {rec.hold}</Typography>
-    //                 <Typography>Sell: {rec.sell}</Typography>
-    //                 <Typography>Strong Buy: {rec.strongBuy}</Typography>
-    //                 <Typography>Strong Sell: {rec.strongSell}</Typography>
-    //                 <br></br>
-    //             </CardContent>
-    //         </div>
-    //     )
-    // })

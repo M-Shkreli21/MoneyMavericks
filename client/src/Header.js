@@ -1,7 +1,5 @@
-import { useRadioGroup } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import ALFLogo from './ALF_Logo.png';
 
 function Header({ handleLogout, user }) {
     return (

@@ -1,14 +1,9 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
 
 function CompanyProfile({ companyProfile }) {
@@ -39,7 +34,7 @@ function CompanyProfile({ companyProfile }) {
                     </TableRow>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>Beta:</TableCell>
-                        <TableCell align="right">{companyProfile.Beta}</TableCell>
+                        <TableCell align="right" sx={{ color: (companyProfile.Beta) < 0 ? 'red' : 'none'}}>{companyProfile.Beta}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>Dividend Date (YYYY/MM/DD):</TableCell>
@@ -55,11 +50,11 @@ function CompanyProfile({ companyProfile }) {
                     </TableRow>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>EPS:</TableCell>
-                        <TableCell align="right">{Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD' }).format(companyProfile.EPS)}</TableCell>
+                        <TableCell align="right" sx={{ color: (companyProfile.EPS) < 0 ? 'red' : 'none'}}>{Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD' }).format(companyProfile.EPS)}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>P/E:</TableCell>
-                        <TableCell align="right">{Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD' }).format(companyProfile.TrailingPE)}</TableCell>
+                        <TableCell align="right" sx={{ color: (companyProfile.TrailingPE) < 0 ? 'red' : 'none'}}>{Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD' }).format(companyProfile.TrailingPE)}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>Analyst Price Target:</TableCell>
@@ -73,20 +68,3 @@ function CompanyProfile({ companyProfile }) {
 }
 
 export default CompanyProfile;
-
-{/* <Card sx={{ m: 1, width: 800, height: 350, backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
-            <h3>Company Profile:</h3>
-                <CardContent>
-                    <Typography>Industry: {companyProfile.Industry}</Typography>
-                    <Typography>Sector: {companyProfile.Sector}</Typography>
-                    <Typography>Market Cap: {companyProfile.MarketCapitalization}</Typography>
-                    <Typography>Shares Outstanding: {companyProfile.SharesOutstanding}</Typography>
-                    <Typography>Beta: {companyProfile.Beta}</Typography>
-                    <Typography>Dividend Date: {companyProfile.DividendDate}</Typography>
-                    <Typography>Dividend Per Share: ${parseFloat(companyProfile.DividendPerShare)}</Typography>
-                    <Typography>Dividend Yield: {companyProfile.DividendYield}%</Typography>
-                    <Typography>EPS: ${companyProfile.EPS}</Typography>
-                    <Typography>P/E: ${companyProfile.TrailingPE}</Typography>
-                    <Typography>Analyst Price Target: ${companyProfile.AnalystTargetPrice}</Typography>
-                </CardContent>
-            </Card> */}
