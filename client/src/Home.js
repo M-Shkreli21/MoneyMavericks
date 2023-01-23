@@ -23,6 +23,7 @@ function Home() {
             <br></br>
             <Typography variant="body1" gutterButton>Please note that there are many more features that are in store that we as a team continuously work on to help better the user expereince. We hope to one day be the go-to site for people to learn about finance and general investing.</Typography>
             </div>
+            <br></br>
             <div className="home_page_bottom">
             <Typography sx={{mb: 0}} variant='overline' display='block' gutterBottom>In order to fully access the websites capabilities please sign in, or sign up if you aren't already a part of the Money Maverick family</Typography>
             </div>

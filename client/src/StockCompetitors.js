@@ -13,7 +13,7 @@ function StockCompetitors({stockPeers}) {
         <div>
             <TableContainer>
             <h3 className="pricing_info">Top Competitors:</h3>
-            <Table size="small" sx={{ m: 1, width: 220, height: 325,  backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <Table size="small" sx={{ m: 1, backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
             <TableBody>
             <TableRow>
                 <TableCell>{stockPeers[1]}</TableCell>

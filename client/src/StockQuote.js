@@ -12,7 +12,7 @@ function StockQuote({ stockQuote }) {
         <div>
             <TableContainer>
             <h3 className="pricing_info">Pricing Information:</h3>
-            <Table sx={{ m: 1, width: 280, height: 175, backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
+            <Table sx={{ m: 1, backgroundColor: '#f5f5f5', boxShadow: 'none' }}>
             <TableBody>
                 <TableRow>
                     <TableCell sx={{fontWeight: "bold" }}>Most Recent Quote: </TableCell>

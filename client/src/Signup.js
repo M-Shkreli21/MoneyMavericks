@@ -50,10 +50,11 @@ function Signup({ addUser }) {
 
 
     return (
-        <div className="signup_form">
-            <img className="login_image_div" src={'https://t3.ftcdn.net/jpg/02/74/91/02/360_F_274910292_Xm3dgmmfMJVFrcjUR1eqJmIC7giRrsTF.jpg'} alt='signup_image' />
+        <div>
+            <img className="login_image_div" src={'https://img.freepik.com/premium-photo/digital-stock-market-forex-trading-graph-candlestick-chart-suitable-financial-investment-financial-investment-trends-business-background-concept_24070-1039.jpg?w=2000'} alt='signup_image' />
+            <div className="signup_container">
             <p style={{ color: 'red' }}>{error ? error : null}</p>
-            <form onSubmit={submitNewUser}>
+            <form className="signup_form" onSubmit={submitNewUser}>
                 <br></br>
                 <h2 className="login_header">New User Sign Up</h2>
                 <TextField sx={{ m: 1, background: "white" }} label="First Name" type='text' size="small" onChange={addFirstName} value={firstName} required />
@@ -68,6 +69,7 @@ function Signup({ addUser }) {
                 <br></br>
                 <Button sx={{ m: 0.5, p: 1, backgroundColor: "none", borderColor: 'white' }} variant='contained' size="large" color="success" type='submit' value='Signup'>Sign Up</Button>
             </form>
+            </div>
         </div>
     )
 }

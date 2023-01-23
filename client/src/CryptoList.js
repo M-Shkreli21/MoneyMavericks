@@ -31,7 +31,7 @@ function CryptoList({ crypto }) {
     return (
         <div>
             <Box>
-                <div className="crypto_info">
+                <div>
                     <form onSubmit={showCrypto} className="Crypto_info">
                         <Box>
                             <TextField type="text" onChange={searchCrypto} placeholder="Enter Crypto Name" size="small" />
@@ -40,7 +40,7 @@ function CryptoList({ crypto }) {
                     </form>
                     <br></br>
                     <TableContainer className="crypto_price">
-                        <Table size="small" sx={{ m: 0.5, ml: 59, width: 500, height: 150, backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
+                        <Table size="small" sx={{ m: 0.5, width: '40%', alignItems: "center", backgroundColor: '#f5f5f5', boxShadow: 'none', margin: '0 auto'}}>
                             <TableRow>
                                 <TableCell>Price:</TableCell>
                                 <TableCell align="right">{cryptoArray.length !== 0 ? (Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cryptoArray[cryptoName].usd)) : null}</TableCell>

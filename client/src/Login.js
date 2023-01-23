@@ -44,7 +44,7 @@ function Login({ user, setUser }) {
     return (
         <div>
             <div>
-            <img className="login_image_div" src={'https://t3.ftcdn.net/jpg/02/74/91/02/360_F_274910292_Xm3dgmmfMJVFrcjUR1eqJmIC7giRrsTF.jpg'} alt='login_image' />
+            <img className="login_image_div" src={'https://cdn.mos.cms.futurecdn.net/YdFsXZgsagfMECEWk7qRTQ.jpg'} alt='login_image' />
             </div>
             <p style={{ color: 'red' }}>{error ? error : null}</p>
             <div>

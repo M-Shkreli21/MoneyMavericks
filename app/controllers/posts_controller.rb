@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+    skip_before_action :check_user, only: [:create, :destroy]
+
 rescue_from ActiveRecord::RecordNotFound, with: :render_post_not_found_error
 rescue_from ActiveRecord::RecordInvalid, with: :render_post_invalid_error
 
@@ -25,9 +27,14 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_post_invalid_error
     end
 
     def destroy
+        user = User.find_by(id: session[:user_id])
         post = find_post
-        post.destroy
-        render json: {}
+        if user
+            post.destroy
+            render json: {}
+        else
+            render json: { message: "Not Authorized" }, status: :unauthorized
+        end
     end
 
     private

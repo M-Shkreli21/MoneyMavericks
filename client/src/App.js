@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import {Route, useLocation, useNavigate } from 'react-router-dom'
+import { Route, useLocation, useNavigate } from 'react-router-dom'
 import SlideRoutes from 'react-slide-routes'
 import Home from './Home.js'
 import Stocks from './Stocks.js'
@@ -23,15 +23,15 @@ function App() {
 
   useEffect(() => {
     fetch("/me")
-    .then(response => {
-      if (response.ok) {
-        response.json()
-    .then(data => {
-      setUser(data)
+      .then(response => {
+        if (response.ok) {
+          response.json()
+            .then(data => {
+              setUser(data)
+            })
+        }
       })
-      }
-    })
-  },[])
+  }, [])
 
   const handleLogout = () => {
     setUser({})
@@ -45,15 +45,26 @@ function App() {
   function addUser(newUser) {
     fetch('/signup', {
       method: "POST",
-      headers: {"content-type" : "application/json"},
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(newUser)
     })
-    .then(response => response.json())
-    .then(data => setUser([data]))
+      .then(response => response.json())
+      .then(data => {
+        fetch("/me")
+        .then(response => {
+          if (response.ok) {
+            response.json()
+              .then(data => {
+                setUser(data)
+                navigate("/")
+              })
+          }
+        })
+      })
   }
 
-    useEffect(() => {
-      fetch('/posts')
+  useEffect(() => {
+    fetch('/posts')
       .then(response => response.json())
       .then(data => setPosts(data))
   }, [])
@@ -61,26 +72,27 @@ function App() {
   function addPost(newPost) {
     fetch('/posts', {
       method: 'POST',
-      headers: {"content-type" : "application/json"},
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(newPost)
     })
-    .then(response => response.json())
+      .then(response => response.json())
+      .then(data => setPosts([...posts, data]))
   }
 
   const location = useLocation();
 
   return (
     <div className="App">
-      <Header handleLogout={handleLogout} user={user}/>
+      <Header handleLogout={handleLogout} user={user} />
       <SlideRoutes location={location} duration={400}>
-        <Route path="/" element={<Home exact/>} />
-        <Route path="/Stocks" element={<Stocks/>} />
-        <Route path="/Crypto" element={<Crypto/>} />
-        <Route path="/MarketRelatedNews" element={<MarketRelatedNews/>} />
-        <Route path="/FinancialTerms" element={<FinancialTerms/>} />
-        <Route path="/DiscussionBoard" element={<DiscussionBoard addPost={addPost} user={user} posts={posts}/>} />
-        <Route path="/Login" element={<Login user={user} setUser={setUser}/>} />
-        <Route path="/Signup" element={<Signup addUser={addUser}/>} />
+        <Route path="/" element={<Home exact />} />
+        <Route path="/Stocks" element={<Stocks />} />
+        <Route path="/Crypto" element={<Crypto />} />
+        <Route path="/MarketRelatedNews" element={<MarketRelatedNews />} />
+        <Route path="/FinancialTerms" element={<FinancialTerms />} />
+        <Route path="/DiscussionBoard" element={<DiscussionBoard addPost={addPost} setPosts={setPosts} user={user} posts={posts} />} />
+        <Route path="/Login" element={<Login user={user} setUser={setUser} />} />
+        <Route path="/Signup" element={<Signup addUser={addUser} />} />
       </SlideRoutes>
     </div>
   );

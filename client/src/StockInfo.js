@@ -13,7 +13,7 @@ function StockInfo({ stockInfo }) {
 
     return (
         <div>
-            <Card sx={{ m: 1, width: 1425, height: 200, display: "flex", flexDirection: "row", boxShadow: 'none', backgroundColor: '#f5f5f5'  }}>
+            <Card sx={{ m: 1, display: "flex", flexDirection: "row", boxShadow: 'none', backgroundColor: '#f5f5f5'  }}>
                 <Card className="stock_logo" sx={{m: 1, width: 210, height: 200, position: "left", backgroundColor: '#f5f5f5'}}>
                     <CardContent>
                         <CardMedia component="img" height="150" src={stockInfo.logo} alt="logo" sx={{ objectFit: "contain" }} />

@@ -14,7 +14,7 @@ function CompanyProfile({ companyProfile }) {
         <div>
             <TableContainer>
                 <h3 className="pricing_info">Company Profile:</h3>
-                <Table size="small" sx={{ m: 1, width: 800, height: 350, backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
+                <Table size="small" sx={{ m: 1, backgroundColor: '#f5f5f5', boxShadow: 'none'}}>
                     <TableBody>
                     <TableRow>
                         <TableCell sx={{fontWeight: "bold" }}>Industry: </TableCell>

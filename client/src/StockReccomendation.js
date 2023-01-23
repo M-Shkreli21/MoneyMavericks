@@ -12,7 +12,7 @@ function StockReccomendation({ stockReccomendation }) {
         <div>
             <TableContainer>
             <h3 className="pricing_info">Analyst Recommendations:</h3>
-            <Table sx={{ m: 1, width: 1425, height: 175, backgroundColor: '#f5f5f5', boxShadow: 'none', justifyContent: "space-between" }}>
+            <Table sx={{ m: 1, backgroundColor: '#f5f5f5', boxShadow: 'none', justifyContent: "space-between" }}>
                 {/* {mappedStockReccomendation} */}
                 <TableHead>
                     <TableRow>
