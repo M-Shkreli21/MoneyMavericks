@@ -26,6 +26,7 @@ function Home() {
             <br></br>
             <div className="home_page_bottom">
             <Typography sx={{mb: 0}} variant='overline' display='block' gutterBottom>In order to fully access the websites capabilities please sign in, or sign up if you aren't already a part of the Money Maverick family</Typography>
+            <Typography sx={{mb: 0}} variant='overline' display='block' gutterBottom>Data provided by: FinnHub, AlphaVantage, CoinLayer & CoinGecko API's</Typography>
             </div>
         </div>
     )

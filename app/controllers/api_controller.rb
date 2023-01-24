@@ -46,7 +46,7 @@ class ApiController < ApplicationController
     end
 
     def stock_transactions
-        st_response = RestClient.get "https://finnhub.io/api/v1/stock/insider-transactions?symbol=#{params["symbol"]}&token=#{ENV["FINNHUB_API_TOKEN"]}",
+        st_response = RestClient.get "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=#{params["symbol"]}&apikey=#{ENV["AV_API_KEY"]}",
         {content_type: :json, accept: :json}
 
         st_info = JSON.parse(st_response)

@@ -7,7 +7,6 @@ import TableRow from '@mui/material/TableRow';
 
 function StockQuote({ stockQuote }) {
 
-
     return (
         <div>
             <TableContainer>

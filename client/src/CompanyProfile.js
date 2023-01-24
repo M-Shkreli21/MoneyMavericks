@@ -8,8 +8,6 @@ import TableRow from '@mui/material/TableRow';
 
 function CompanyProfile({ companyProfile }) {
 
-    console.log(companyProfile)
-
     return (
         <div>
             <TableContainer>

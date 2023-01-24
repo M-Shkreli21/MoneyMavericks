@@ -7,8 +7,6 @@ import TableRow from '@mui/material/TableRow';
 
 function StockCompetitors({stockPeers}) {
 
-    console.log(stockPeers)
-
     return(
         <div>
             <TableContainer>

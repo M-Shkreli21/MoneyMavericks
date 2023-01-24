@@ -12,8 +12,6 @@ import Login from './Login.js';
 import Signup from './Signup.js';
 import Header from './Header.js';
 
-
-
 function App() {
 
   const [user, setUser] = useState({})

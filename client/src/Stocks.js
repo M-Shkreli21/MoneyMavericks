@@ -4,6 +4,7 @@ import StockQuote from './StockQuote';
 import StockCompetitors from './StockCompetitors';
 import StockReccomendation from './StockReccomendation';
 import StockInfo from './StockInfo';
+import StockChart from './StockChart';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -15,6 +16,7 @@ function Stocks() {
     const [stockPeers, setStockPeers] = useState([])
     const [stockReccomendation, setStockReccomendation] = useState([])
     const [stockInfo, setStockInfo] = useState([])
+    const [stockChart, setStockChart] = useState([])
 
     const handleStockChange = e => setStock(e.target.value)
 
@@ -46,14 +48,18 @@ function Stocks() {
         fetch(`/stock_info?symbol=${stock}`)
             .then(response => response.json())
             .then(data => setStockInfo(data))
+
+        fetch(`/stock_transactions?symbol=${stock}`)
+            .then(response => response.json())
+            .then(data => setStockChart(data))
     }
 
     return (
         <div >
             <h3>Search By Ticker</h3>
             <form onSubmit={handleStockSubmit}>
-                <TextField type="text" onChange={handleStockChange} placeholder="Enter a Stock" size="small"/>
-                <Button type="submit" value="Search" color="success" size="small" sx={{ m: 0.5, p:0.5, backgroundColor: "none", borderColor: 'black' }} variant='contained'>Search Stock</Button>
+                <TextField type="text" onChange={handleStockChange} placeholder="Enter a Stock" size="small" />
+                <Button type="submit" value="Search" color="success" size="small" sx={{ m: 0.5, p: 0.5, backgroundColor: "none", borderColor: 'black' }} variant='contained'>Search Stock</Button>
             </form>
             <div className='parent'>
                 <div className="company_info">
@@ -69,7 +75,10 @@ function Stocks() {
                     <StockCompetitors stockPeers={stockPeers} />
                 </div>
                 <div className="stock_rec">
-                <StockReccomendation stockReccomendation={stockReccomendation} />
+                    <StockReccomendation stockReccomendation={stockReccomendation} />
+                </div>
+                <div className="stock_chart">
+                    <StockChart stock={stock} stockChart={stockChart} />
                 </div>
             </div>
         </div>

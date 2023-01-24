@@ -7,8 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 
 function MarketRelatedNewsList({ market_news }) {
 
-    console.log(market_news);
-
     return (
         <div>
             <Grid container spacing={-2} direction="column" justify="flex-start" alignItems="flex-start">

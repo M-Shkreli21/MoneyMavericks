@@ -9,8 +9,6 @@ import TableRow from '@mui/material/TableRow';
 
 function StockInfo({ stockInfo }) {
 
-    console.log(stockInfo);
-
     return (
         <div>
             <Card sx={{ m: 1, display: "flex", flexDirection: "row", boxShadow: 'none', backgroundColor: '#f5f5f5'  }}>
