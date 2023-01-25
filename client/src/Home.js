@@ -11,9 +11,9 @@ function Home() {
             beginning of a very long and complex web application to help everyone regardless if you have expereience or not</Typography>
             <br></br>
             <h3>Website Capabilities</h3>
-            <Typography variant="body1" gutterButton>With Money Mavericks you as a user can search stocks by ticker and get company information as well as a list of competitors and analyst recommendations.</Typography>
+            <Typography variant="body1" gutterButton>With Money Mavericks you as a user can search stocks by ticker and get company information as well as a list of competitors and analyst recommendations. You are also able to see a 6 month chart of closing prices that update daily thanks to the powerful AlphaVantage API.</Typography>
             <br></br>
-            <Typography variant="body1" gutterButton>In the crypto tab you can see a card representing one of the many available cryptocurrencies along with the max supply and general price changes,</Typography>
+            <Typography variant="body1" gutterButton>In the crypto tab you can see a infinite scroll table representing the many available cryptocurrencies along with the max supply. When you enter in a crypto name in the search bar you will see the current Price, Market Cap, 24Hr Change and Volume.</Typography>
             <br></br>
             <Typography variant="body1" gutterButton>Market related news are consistently refreshing with the top 100 news stories that relate to the market as a whole or can be based on a specific topic</Typography>
             <br></br>

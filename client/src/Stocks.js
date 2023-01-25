@@ -18,7 +18,7 @@ function Stocks() {
     const [stockInfo, setStockInfo] = useState([])
     const [stockChart, setStockChart] = useState([])
 
-    const handleStockChange = e => setStock(e.target.value)
+    const handleStockChange = e => setStock(e.target.value.toUpperCase())
 
     function handleStockSubmit(e) {
         e.preventDefault()
@@ -52,7 +52,7 @@ function Stocks() {
         fetch(`/stock_transactions?symbol=${stock}`)
             .then(response => response.json())
             .then(data => setStockChart(data))
-    }
+        }
 
     return (
         <div >

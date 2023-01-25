@@ -6,11 +6,13 @@ import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
+import { Typography } from '@mui/material';
 
 function StockInfo({ stockInfo }) {
 
     return (
         <div>
+            <Typography align='left' sx={{m:1, fontSize: 18, fontWeight: 'bold'}}>Company Information:</Typography>
             <Card sx={{ m: 1, display: "flex", flexDirection: "row", boxShadow: 'none', backgroundColor: '#f5f5f5'  }}>
                 <Card className="stock_logo" sx={{m: 1, width: 210, height: 200, position: "left", backgroundColor: '#f5f5f5'}}>
                     <CardContent>

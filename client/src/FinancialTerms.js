@@ -27,7 +27,7 @@ function FinancialTerms() {
             <div className='terms_container'>
                 <Card variant="outlined" sx={{ m: 1, width: 330, height: 175, display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: '#f5f5f5' }}>
                     <CardContent>
-                        <Typography sx={{fontWeight: 'bold'}} onClick={handleTerm}>{term.term_name}</Typography>
+                        <Typography sx={{fontWeight: 'bold', cursor: 'pointer'}} onClick={handleTerm}>{term.term_name}</Typography>
                         <Typography sx={{fontStyle: 'italic'}}>{term.id === id && toggle ? term.definition : null}</Typography>
                     </CardContent>
                 </Card>

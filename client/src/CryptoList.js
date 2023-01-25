@@ -16,7 +16,7 @@ function CryptoList({ crypto }) {
     const [cryptoArray, setCryptoArray] = useState([])
 
     function searchCrypto(e) {
-        setCryptoName(e.target.value)
+        setCryptoName(e.target.value.toLowerCase())
         setCryptoArray([])
     }
 
