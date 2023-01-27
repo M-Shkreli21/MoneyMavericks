@@ -33,7 +33,7 @@ function StockChart({ stockChart, stock }) {
 
     return (
         <div>
-            <h3>{stock.toUpperCase()} 6-Month Daily Chart</h3>
+            <h3>{stock.toUpperCase()} Daily Chart</h3>
             <Line
                 data={data}
             />
