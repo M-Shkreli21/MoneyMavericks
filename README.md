@@ -37,7 +37,9 @@ In order to use the site from github, please follow the below steps:
 
 1. Clone to repository into your local machine
 
-2. Use the following command to begin the backend server (PostgreSQL) bundle install Rails s
+2. Use the following command to begin the backend server (PostgreSQL):
+bundle install 
+Rails s
 
 3. Now that the backend is connected, run npm install --prefix client, in order to download the necessary node modules and packages for the frontend.
 
